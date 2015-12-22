@@ -1,2 +1,2 @@
-# C-C-
-Contains all standard implementations
+# Standard
+Contains all standard implementations and methods.
