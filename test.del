@@ -1,0 +1,26 @@
+is fileJobAlreadyUploaded():
+		string query = "select count(*) from copy_log
+		where  file_name = filename &
+			status = success &
+			job_id = job_id"
+
+		return query.run()
+
+
+is Job_id mandatory? Yes
+
+
+Generate Job_id::
+	num = select count(*) from copy_log
+	num += 1
+	return num
+
+
+if fileJobAlreadyUploaded() 
+	print("file already uploaded")
+	write_copy_log()
+else
+	copy_command()
+	write_copy_log()
+
+
